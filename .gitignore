@@ -1,0 +1,9 @@
+CubeHash.bs
+CubeHash.c
+CubeHash.o
+Digest-CubeHash-*
+MANIFEST.bak
+Makefile
+Makefile.old
+blib/
+pm_to_blib
