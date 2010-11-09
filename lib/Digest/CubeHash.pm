@@ -152,7 +152,9 @@ Returns the algorithm used by the object.
 L<Digest>
 
 L<http://cubehash.cr.yp.to/>
+
 L<http://en.wikimedia.org/wikipedia/en/wiki/CubeHash>
+
 L<http://en.wikimedia.org/wikipedia/en/wiki/SHA-3>
 
 L<http://www.saphir2.com/sphlib/>
