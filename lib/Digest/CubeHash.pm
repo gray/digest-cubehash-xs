@@ -153,9 +153,9 @@ L<Digest>
 
 L<http://cubehash.cr.yp.to/>
 
-L<http://en.wikimedia.org/wikipedia/en/wiki/CubeHash>
+L<http://en.wikipedia.org/wiki/CubeHash>
 
-L<http://en.wikimedia.org/wikipedia/en/wiki/SHA-3>
+L<http://en.wikipedia.org/wiki/NIST_hash_function_competition>
 
 L<http://www.saphir2.com/sphlib/>
 
