@@ -77,8 +77,8 @@ Digest::CubeHash - Perl interface to the CubeHash digest algorithm
     );
 
     $digest = cubehash_256($data);
-    $digest = cubehash_hex_256($data);
-    $digest = cubehash_base64_256($data);
+    $digest = cubehash_256_hex($data);
+    $digest = cubehash_256_base64($data);
 
     # Object-oriented interface
     use Digest::CubeHash;
