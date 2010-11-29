@@ -25,33 +25,6 @@ our @EXPORT_OK = qw(
     cubehash_512 cubehash_512_hex cubehash_512_base64
 );
 
-# TODO: convert to C.
-sub cubehash_224_hex  { unpack 'H*', cubehash_224(@_) }
-sub cubehash_256_hex  { unpack 'H*', cubehash_256(@_) }
-sub cubehash_384_hex  { unpack 'H*', cubehash_384(@_) }
-sub cubehash_512_hex  { unpack 'H*', cubehash_512(@_) }
-
-sub cubehash_224_base64 {
-    my $b64 = MIME::Base64::encode(cubehash_224(@_), '');
-    $b64 =~ s/=+$//g;
-    return $b64;
-}
-sub cubehash_256_base64 {
-    my $b64 = MIME::Base64::encode(cubehash_256(@_), '');
-    $b64 =~ s/=+$//g;
-    return $b64;
-}
-sub cubehash_384_base64 {
-    my $b64 = MIME::Base64::encode(cubehash_384(@_), '');
-    $b64 =~ s/=+$//g;
-    return $b64;
-}
-sub cubehash_512_base64 {
-    my $b64 = MIME::Base64::encode(cubehash_512(@_), '');
-    $b64 =~ s/=+$//g;
-    return $b64;
-}
-
 sub add_bits {
     my ($self, $data, $bits) = @_;
     if (2 == @_) {
