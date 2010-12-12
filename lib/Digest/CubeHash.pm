@@ -66,7 +66,8 @@ Digest::CubeHash - Perl interface to the CubeHash digest algorithm
 =head1 DESCRIPTION
 
 The C<Digest::CubeHash> module provides an interface to the CubeHash message
-digest algorithm. CubeHash is a candidate in the NIST SHA-3 competition.
+digest algorithm. CubeHash was a candidate in the NIST SHA-3 competition but
+did progress beyond round 2.
 
 This interface follows the conventions set forth by the C<Digest> module.
 
