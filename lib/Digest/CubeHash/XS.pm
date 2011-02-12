@@ -1,4 +1,4 @@
-package Digest::CubeHash;
+package Digest::CubeHash::XS;
 
 use strict;
 use warnings;
@@ -38,12 +38,12 @@ __END__
 
 =head1 NAME
 
-Digest::CubeHash - Perl interface to the CubeHash digest algorithm
+Digest::CubeHash::XS - Perl interface to the CubeHash digest algorithm
 
 =head1 SYNOPSIS
 
     # Functional interface
-    use Digest::CubeHash qw(
+    use Digest::CubeHash::XS qw(
         cubehash_256 cubehash_256_hex cubehash_256_base64
     );
 
@@ -52,9 +52,9 @@ Digest::CubeHash - Perl interface to the CubeHash digest algorithm
     $digest = cubehash_256_base64($data);
 
     # Object-oriented interface
-    use Digest::CubeHash;
+    use Digest::CubeHash::XS;
 
-    $ctx = Digest::CubeHash->new(256);
+    $ctx = Digest::CubeHash::XS->new(256);
 
     $ctx->add($data);
     $ctx->addfile(*FILE);
@@ -65,16 +65,16 @@ Digest::CubeHash - Perl interface to the CubeHash digest algorithm
 
 =head1 DESCRIPTION
 
-The C<Digest::CubeHash> module provides an interface to the CubeHash message
-digest algorithm. CubeHash was a candidate in the NIST SHA-3 competition but
-did progress beyond round 2.
+The C<Digest::CubeHash::XS> module provides an interface to the CubeHash
+message digest algorithm. CubeHash was a candidate in the NIST SHA-3
+competition but did progress beyond round 2.
 
 This interface follows the conventions set forth by the C<Digest> module.
 
 =head1 FUNCTIONS
 
-The following functions are provided by the C<Digest::CubeHash> module. None
-of these functions are exported by default.
+The following functions are provided by the C<Digest::CubeHash::XS> module.
+None of these functions are exported by default.
 
 =head2 cubehash_224($data, ...)
 
@@ -111,12 +111,12 @@ digest encoded as a Base64 string, without any trailing padding.
 
 =head1 METHODS
 
-The object-oriented interface to C<Digest::CubeHash> is identical to that
-described by C<Digest>, except for the following:
+The object-oriented interface to C<Digest::CubeHash::XS> is identical to
+that described by C<Digest>, except for the following:
 
 =head2 new
 
-    $cubehash = Digest::CubeHash->new(256)
+    $cubehash = Digest::CubeHash::XS->new(256)
 
 The constructor requires the algorithm to be specified. It must be one of:
 224, 256, 384, 512.
@@ -144,7 +144,7 @@ L<http://www.saphir2.com/sphlib/>
 =head1 REQUESTS AND BUGS
 
 Please report any bugs or feature requests to
-L<http://rt.cpan.org/Public/Bug/Report.html?Digest-CubeHash>. I will be
+L<http://rt.cpan.org/Public/Bug/Report.html?Digest-CubeHash-XS>. I will be
 notified, and then you'll automatically be notified of progress on your bug
 as I make changes.
 
@@ -152,7 +152,7 @@ as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Digest::CubeHash
+    perldoc Digest::CubeHash::XS
 
 You can also look for information at:
 
@@ -160,29 +160,29 @@ You can also look for information at:
 
 =item * GitHub Source Repository
 
-L<http://github.com/gray/digest-cubehash>
+L<http://github.com/gray/digest-cubehash-xs>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
-L<http://annocpan.org/dist/Digest-CubeHash>
+L<http://annocpan.org/dist/Digest-CubeHash-XS>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/Digest-CubeHash>
+L<http://cpanratings.perl.org/d/Digest-CubeHash-XS>
 
 =item * RT: CPAN's request tracker
 
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Digest-CubeHash>
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Digest-CubeHash-XS>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/Digest-CubeHash/>
+L<http://search.cpan.org/dist/Digest-CubeHash-XS/>
 
 =back
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2010 gray <gray at cpan.org>, all rights reserved.
+Copyright (C) 2010-2011 gray <gray at cpan.org>, all rights reserved.
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

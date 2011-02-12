@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More tests => 68;
-use Digest::CubeHash qw(cubehash_256 cubehash_256_hex);
+use Digest::CubeHash::XS qw(cubehash_256 cubehash_256_hex);
 
 my $len = 0;
 
@@ -12,7 +12,7 @@ while (my $line = <DATA>) {
     $digest = lc $digest;
 
     if ($len and not $len % 8) {
-        my $md = Digest::CubeHash->new(256)->add($data)->hexdigest;
+        my $md = Digest::CubeHash::XS->new(256)->add($data)->hexdigest;
         is($md, $digest, "new/add/hexdigest: $len bits of $msg");
         is(
             cubehash_256_hex($data), $digest,
@@ -24,7 +24,7 @@ while (my $line = <DATA>) {
         );
     }
 
-    my $md = Digest::CubeHash->new(256)->add_bits($data, $len)->hexdigest;
+    my $md = Digest::CubeHash::XS->new(256)->add_bits($data, $len)->hexdigest;
     is($md, $digest, "new/add_bits/hexdigest: $len bits of $msg");
 }
 continue { $len++ }

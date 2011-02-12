@@ -1,23 +1,23 @@
 use strict;
 use warnings;
 use Test::More tests => 19;
-use Digest::CubeHash;
+use Digest::CubeHash::XS;
 
-new_ok('Digest::CubeHash' => [$_], "algorithm $_") for qw(224 256 384 512);
+new_ok('Digest::CubeHash::XS' => [$_], "algorithm $_") for qw(224 256 384 512);
 
-is(eval { Digest::CubeHash->new },     undef, 'no algorithm specified');
-is(eval { Digest::CubeHash->new(10) }, undef, 'invalid algorithm specified');
+is(eval { Digest::CubeHash::XS->new },     undef, 'no algorithm specified');
+is(eval { Digest::CubeHash::XS->new(10) }, undef, 'invalid algorithm specified');
 
-can_ok('Digest::CubeHash',
+can_ok('Digest::CubeHash::XS',
     qw(clone reset algorithm hashsize add digest hexdigest b64digest)
 );
 
 for my $alg (qw(224 256 384 512)) {
-    my $d1 = Digest::CubeHash->new($alg);
+    my $d1 = Digest::CubeHash::XS->new($alg);
     $d1->add('foo bar')->reset;
     is(
         $d1->hexdigest,
-        Digest::CubeHash->new($alg)->hexdigest,
+        Digest::CubeHash::XS->new($alg)->hexdigest,
         "explicit reset of $alg"
     );
     is(

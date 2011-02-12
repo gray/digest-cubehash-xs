@@ -1,12 +1,12 @@
 use strict;
 use warnings;
 use Test::More tests => 2;
-use Digest::CubeHash;
+use Digest::CubeHash::XS;
 
 my $msg  = 'ABC';
 my $bits = unpack 'B*', $msg;
 
-my $d = Digest::CubeHash->new(224);
+my $d = Digest::CubeHash::XS->new(224);
 
 is(
     $d->reset->add($msg)->hexdigest,

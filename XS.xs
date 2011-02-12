@@ -70,9 +70,9 @@ make_mortal_sv(pTHX_ const unsigned char *src, int bitlen, int enc) {
     return sv_2mortal(newSVpv(ret, len));
 }
 
-typedef hashState *Digest__CubeHash;
+typedef hashState *Digest__CubeHash__XS;
 
-MODULE = Digest::CubeHash    PACKAGE = Digest::CubeHash
+MODULE = Digest::CubeHash::XS    PACKAGE = Digest::CubeHash::XS
 
 PROTOTYPES: ENABLE
 
@@ -113,7 +113,7 @@ CODE:
     ST(0) = make_mortal_sv(aTHX_ result, bitlen, ix % 3);
     XSRETURN(1);
 
-Digest::CubeHash
+Digest::CubeHash::XS
 new (class, hashsize)
     SV *class
     int hashsize
@@ -124,9 +124,9 @@ CODE:
 OUTPUT:
     RETVAL
 
-Digest::CubeHash
+Digest::CubeHash::XS
 clone (self)
-    Digest::CubeHash self
+    Digest::CubeHash::XS self
 CODE:
     Newx(RETVAL, 1, hashState);
     Copy(self, RETVAL, 1, hashState);
@@ -135,7 +135,7 @@ OUTPUT:
 
 void
 reset (self)
-    Digest::CubeHash self
+    Digest::CubeHash::XS self
 PPCODE:
     if (Init(self, self->hashbitlen) != SUCCESS)
         XSRETURN_UNDEF;
@@ -143,7 +143,7 @@ PPCODE:
 
 int
 hashsize(self)
-    Digest::CubeHash self
+    Digest::CubeHash::XS self
 ALIAS:
     algorithm = 1
 CODE:
@@ -153,7 +153,7 @@ OUTPUT:
 
 void
 add (self, ...)
-    Digest::CubeHash self
+    Digest::CubeHash::XS self
 PREINIT:
     int i;
     unsigned char *data;
@@ -168,7 +168,7 @@ PPCODE:
 
 void
 _add_bits (self, msg, bitlen)
-    Digest::CubeHash self
+    Digest::CubeHash::XS self
     SV *msg
     int bitlen
 PREINIT:
@@ -187,7 +187,7 @@ PPCODE:
 
 void *
 digest (self)
-    Digest::CubeHash self
+    Digest::CubeHash::XS self
 ALIAS:
     digest = 0
     hexdigest = 1
@@ -203,6 +203,6 @@ CODE:
 
 void
 DESTROY (self)
-    Digest::CubeHash self
+    Digest::CubeHash::XS self
 CODE:
     Safefree(self);

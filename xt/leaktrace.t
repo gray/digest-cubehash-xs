@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Digest::CubeHash;
+use Digest::CubeHash::XS;
 use Test::More;
 
 eval "use Test::LeakTrace; 1" or do {
@@ -9,7 +9,7 @@ eval "use Test::LeakTrace; 1" or do {
 plan tests => 1;
 
 my $try = sub {
-    my $cubehash = Digest::CubeHash->new(224);
+    my $cubehash = Digest::CubeHash::XS->new(224);
     $cubehash->add('foobar');
 };
 

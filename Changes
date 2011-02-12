@@ -1,4 +1,7 @@
-Revision history for Digest-CubeHash
+Revision history for Digest-CubeHash-XS
+
+0.05  Sat Feb 12 08:51:32 UTC 2011
+    - Renamed distribution because the original module name was reserved.
 
 0.04  Mon Nov 29 11:04:26 UTC 2010
     - Converted hex and base64 encoders to C.

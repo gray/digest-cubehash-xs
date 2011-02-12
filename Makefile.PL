@@ -3,11 +3,11 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 my %conf = (
-    NAME          => 'Digest::CubeHash',
+    NAME          => 'Digest::CubeHash::XS',
     AUTHOR        => 'gray <gray@cpan.org>',
     LICENSE       => 'perl',
-    VERSION_FROM  => 'lib/Digest/CubeHash.pm',
-    ABSTRACT_FROM => 'lib/Digest/CubeHash.pm',
+    VERSION_FROM  => 'lib/Digest/CubeHash/XS.pm',
+    ABSTRACT_FROM => 'lib/Digest/CubeHash/XS.pm',
     PREREQ_PM => {
         Digest         => 0,
         parent         => 0,
@@ -15,11 +15,11 @@ my %conf = (
     BUILD_REQUIRES => { 'Test::More' => 0.82, },
     META_MERGE     => {
         resources => {
-            repository => 'http://github.com/gray/digest-cubehash',
+            repository => 'http://github.com/gray/digest-cubehash-xs',
         },
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean => { FILES    => 'Digest-CubeHash-*' },
+    clean => { FILES    => 'Digest-CubeHash-XS-*' },
 );
 
 my $eumm_version =  do {
